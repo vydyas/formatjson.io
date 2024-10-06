@@ -17,7 +17,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title:
-    "formatjson.io is the Best JSON Formatter and JSON Validator: Online JSON Formatter",
+    "Best JSON Formatter and JSON Validator: Online JSON Formatter, JSON to XML, JSON beautifier",
   description:
     "Online JSON Formatter / Beautifier and JSON Validator will format JSON data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON",
 };
