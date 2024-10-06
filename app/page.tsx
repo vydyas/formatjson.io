@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, ChangeEvent, useEffect } from "react";
+import React, { useState, ChangeEvent, useEffect, useMemo } from "react";
 import styles from "./page.module.css";
 import AceEditor from "react-ace";
-import { Fredoka } from "next/font/google"; // Import the Google font using @next/font
 import dynamic from "next/dynamic"; // To dynamically import the tree view component
 import { json2xml } from "xml-js"; // Import xml-js for JSON to XML conversion
 import Footer from "./components/footer"; // Import the Footer component
@@ -17,11 +16,6 @@ import "ace-builds/src-noconflict/ext-language_tools";
 // Dynamically import react-json-view (it needs to run on the client side)
 const ReactJson = dynamic(() => import("react-json-view"), { ssr: false });
 
-const fredoka = Fredoka({
-  weight: "400",
-  subsets: ["latin"],
-});
-
 const Home: React.FC = () => {
   const [input, setInput] = useState<string>("");
   const [output, setOutput] = useState<string>("");
@@ -31,24 +25,28 @@ const Home: React.FC = () => {
   const [showTreeView, setShowTreeView] = useState<boolean>(false);
   const [xmlOutput, setXmlOutput] = useState<string>("");
 
-  const sampleJSON = {
-    name: "John Doe",
-    age: 30,
-    email: "john.doe@example.com",
-    address: {
-      street: "123 Main St",
-      city: "Somewhere",
-      state: "CA",
-      postalCode: "12345",
-    },
-    phoneNumbers: ["555-555-5555", "555-555-1234"],
-  };
+  // Memoize the sample JSON to avoid re-creation on each render
+  const sampleJSON = useMemo(
+    () => ({
+      name: "John Doe",
+      age: 30,
+      email: "john.doe@example.com",
+      address: {
+        street: "123 Main St",
+        city: "Somewhere",
+        state: "CA",
+        postalCode: "12345",
+      },
+      phoneNumbers: ["555-555-5555", "555-555-1234"],
+    }),
+    []
+  );
 
   // Load sample JSON data when the component mounts
   useEffect(() => {
     const formattedSample = JSON.stringify(sampleJSON, null, 2); // Format with 2 spaces
     setInput(formattedSample);
-  }, []);
+  }, [sampleJSON]);
 
   useEffect(() => {
     if (inputEditor) {

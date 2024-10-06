@@ -62,8 +62,9 @@ const Index: React.FC = () => {
             <b>About Me</b>
           </h4>
           <p>
-            I'm Siddhu from Hyderabad, India. I'm working as Senior Software
-            Engineer @Salesforce. I'm passionate about building products.
+            I&apos;m Siddhu from Hyderabad, India. I&apos;m working as Senior
+            Software Engineer @Salesforce. I&apos;m passionate about building
+            products.
           </p>
         </div>
       </div>

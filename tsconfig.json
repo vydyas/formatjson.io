@@ -15,6 +15,7 @@
     "allowSyntheticDefaultImports": true, 
     "forceConsistentCasingInFileNames": true,
     "strictNullChecks": true, 
+    "noImplicitAny": false,
     "plugins": [
       {
         "name": "next"
