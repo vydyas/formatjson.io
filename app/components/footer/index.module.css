@@ -1,0 +1,41 @@
+/* components/Footer.module.css */
+.footer {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section { /* Add a local class to wrap the headings and lists */
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .section a {
+    color: #0070f3;
+    text-decoration: none;
+  }
+  
+  .section a:hover {
+    text-decoration: underline;
+  }
+  
