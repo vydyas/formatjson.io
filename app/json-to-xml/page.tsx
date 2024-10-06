@@ -18,7 +18,7 @@ const ReactJson = dynamic(() => import("react-json-view"), { ssr: false });
 
 const Home: React.FC = () => {
   const [input, setInput] = useState<string>("");
-  const [output, setOutput] = useState<string>("");
+  const output = "";
   const [indentation, setIndentation] = useState<number>(2);
   const [inputEditor, setInputEditor] = useState<any>(null);
   const [outputEditor, setOutputEditor] = useState<any>(null);
@@ -84,10 +84,6 @@ const Home: React.FC = () => {
     setXmlOutput("");
     const formattedSample = JSON.stringify(sampleJSON, null, 2); // Format sample with 2 spaces
     setInput(formattedSample);
-  };
-
-  const handleToggleTreeView = () => {
-    setShowTreeView((prev) => !prev);
   };
 
   const handleJsonToXml = () => {

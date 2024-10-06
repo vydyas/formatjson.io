@@ -4,7 +4,6 @@ import React, { useState, ChangeEvent, useEffect, useMemo } from "react";
 import styles from "./page.module.css";
 import AceEditor from "react-ace";
 import dynamic from "next/dynamic"; // To dynamically import the tree view component
-import { json2xml } from "xml-js"; // Import xml-js for JSON to XML conversion
 import Footer from "../components/footer"; // Import the Footer component
 import Header from "../components/header"; // Import the Footer component
 
@@ -18,8 +17,8 @@ const ReactJson = dynamic(() => import("react-json-view"), { ssr: false });
 
 const Home: React.FC = () => {
   const [input, setInput] = useState<string>("");
-  const [output, setOutput] = useState<string>("");
-  const [indentation, setIndentation] = useState<number>(2);
+  const output = "";
+  const indentation = 2;
   const [inputEditor, setInputEditor] = useState<any>(null);
   const [outputEditor, setOutputEditor] = useState<any>(null);
   const [showTreeView, setShowTreeView] = useState<boolean>(false);
