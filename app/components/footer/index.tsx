@@ -17,10 +17,18 @@ const Index: React.FC = () => {
           </p>
 
           <ul>
-            <li>JSON to XML</li>
+            <li>
+              <a href="/json-to-xml" target="_blank">
+                JSON to XML
+              </a>
+            </li>
             <li>JSON Beautifier</li>
             <li>JSON Minifier</li>
-            <li>JSON TREE VIEW</li>
+            <li>
+              <a href="/json-tree-viewer" target="_blank">
+                JSON TREE VIEW
+              </a>
+            </li>
           </ul>
         </div>
         <div className={styles.section}>
