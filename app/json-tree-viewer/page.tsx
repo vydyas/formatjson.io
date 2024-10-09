@@ -114,7 +114,8 @@ const Home: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <Header /> {/* Use the Header component here */}
+      <Header subtitle="JSON to Tree View" />{" "}
+      {/* Use the Header component here */}
       <main>
         <div className={styles.textareaContainer}>
           <div className={styles.editorContainer}>

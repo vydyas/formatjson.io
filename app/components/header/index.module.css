@@ -1,9 +1,17 @@
 /* components/Header.module.css */
 .title {
-    font-size:35px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+    display: flex;
+    justify-content: center
   }
   
+  .title h1 {
+    font-size: 35px;
+  }
+
+  .title .subTitle {
+    margin-top: 17px;
+  }
