@@ -47,6 +47,12 @@ export default function RootLayout({
             gtag('config', 'G-XY4H2C61EY');
           `}
         </Script>
+        <Script
+          defer
+          data-website-id="67077c800a52037e0fc2f48c"
+          data-domain="formatjson.io"
+          src="https://datafa.st/js/script.js"
+        ></Script>
         {children}
       </body>
     </html>
