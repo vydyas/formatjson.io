@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 const bots = [
   "googlebot",
@@ -35,7 +35,6 @@ const bots = [
   "xing-contenttabreceiver",
   "chrome-lighthouse",
   "telegrambot",
-  "integration-test", // Integration testing
 ];
 
 const IGNORE_EXTENSIONS = [
@@ -83,38 +82,52 @@ const IGNORE_EXTENSIONS = [
   ".webmanifest",
 ];
 
-export async function middleware(request: NextRequest) {
-  const userAgent = request.headers.get("user-agent");
-  const isBot =
-    userAgent && bots.some((bot) => userAgent.toLowerCase().includes(bot));
+export function middleware(request) {
+  // Debug: Log the full request URL and headers
+  console.log("Request URL:", request.url);
+  console.log("Request headers:", Object.fromEntries(request.headers));
+
+  const userAgent = request.headers.get("user-agent") || "";
+  console.log("User Agent:", userAgent); // Debug: Log the user agent
+
+  const isBot = bots.some((bot) => userAgent.toLowerCase().includes(bot));
+  console.log("Is Bot:", isBot); // Debug: Log whether it's detected as a bot
+
   const isPrerender = request.headers.get("X-Prerender");
-  const pathname = new URL(request.url).pathname;
+  const url = new URL(request.url);
+  const pathname = url.pathname;
   const extension = pathname.split(".").pop() || "";
+
+  console.log("Is Prerender:", isPrerender); // Debug: Log prerender header
+  console.log("Pathname:", pathname); // Debug: Log the pathname
+  console.log("Extension:", extension); // Debug: Log the file extension
 
   if (
     isPrerender ||
     !isBot ||
     (extension && IGNORE_EXTENSIONS.includes(`.${extension}`))
   ) {
+    console.log("Passing through to Next.js"); // Debug: Log pass-through
     return NextResponse.next();
   } else if (isBot) {
+    console.log("Bot detected, rewriting to Prerender.io"); // Debug: Log rewrite
     const prerenderUrl = new URL(`https://service.prerender.io/${request.url}`);
 
     const headers = new Headers(request.headers);
     headers.set("X-Prerender-Token", process.env.PRERENDER_TOKEN || "");
     headers.set("X-Prerender-Int-Type", "NextJS");
-    headers.set("X-Redirected-From", request.url);
+    headers.set("X-Original-Url", request.url);
 
-    const response = NextResponse.rewrite(prerenderUrl, {
+    // Debug: Log the Prerender.io URL and headers
+    console.log("Prerender URL:", prerenderUrl.toString());
+    console.log("Prerender headers:", Object.fromEntries(headers));
+
+    return NextResponse.rewrite(prerenderUrl, {
       headers: headers,
     });
-
-    // You might want to add additional headers to the response
-    response.headers.set("X-Prerendered", "true");
-
-    return response;
   }
 
+  console.log("Fallback: Passing through to Next.js"); // Debug: Log fallback
   return NextResponse.next();
 }
 
