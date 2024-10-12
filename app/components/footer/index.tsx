@@ -15,7 +15,11 @@ const Index: React.FC = () => {
             efficiently.
             <br /> <br />
           </p>
-
+        </div>
+        <div className={styles.section}>
+          <h4>
+            <b>Links</b>
+          </h4>
           <ul>
             <li>
               <a href="/json-to-xml" target="_blank">
@@ -33,8 +37,15 @@ const Index: React.FC = () => {
         </div>
         <div className={styles.section}>
           <h4>
-            <b>Follow The Developer</b>
+            <b>About Me</b>
           </h4>
+          <p>
+            I&apos;m Siddhu from Hyderabad, India. I&apos;m working as Senior
+            Software Engineer @Salesforce. I&apos;m passionate about building
+            products.
+          </p>
+          <br />
+
           <ul>
             <li>
               <a
@@ -64,16 +75,6 @@ const Index: React.FC = () => {
               </a>
             </li>
           </ul>
-        </div>
-        <div className={styles.section}>
-          <h4>
-            <b>About Me</b>
-          </h4>
-          <p>
-            I&apos;m Siddhu from Hyderabad, India. I&apos;m working as Senior
-            Software Engineer @Salesforce. I&apos;m passionate about building
-            products.
-          </p>
         </div>
       </div>
     </footer>
