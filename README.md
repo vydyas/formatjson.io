@@ -1,4 +1,4 @@
-# FormatJSON.io | JSON Formatter and Converter 📝🔧
+# FormatJSON.io 🔧 | JSON Formatter and Converter 📝
 
 **FormatJSON.io** is a fast and efficient web application built with **Next.js** and **React** that allows you to manage, format, and convert JSON data seamlessly. Whether you need to **beautify** JSON, **minify** it, or convert it to other formats like **XML**, this tool has you covered. Easily explore JSON structures in a tree view and make your JSON data more readable and optimized.
 
