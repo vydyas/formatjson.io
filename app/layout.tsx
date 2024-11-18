@@ -31,14 +31,60 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="title"
+          content="Best JSON Formatter and JSON Validator: Online JSON Formatter, JSON to XML, JSON beautifier"
+        />
+        <meta
+          name="description"
+          content="Online JSON Formatter / Beautifier and JSON Validator will format JSON data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON"
+        />
+        <meta
+          name="keywords"
+          content="JSON Formatter, JSON Validator, JSON beautifier, JSON to XML, JSON to CSV, Format JSON online"
+        />
+        <meta name="author" content="Siddhu Vydyabhushana" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Best JSON Formatter and JSON Validator: Online JSON Formatter, JSON to XML, JSON beautifier"
+        />
+        <meta
+          property="og:description"
+          content="Online JSON Formatter / Beautifier and JSON Validator will format JSON data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON"
+        />
+        <meta property="og:image" content="/landing_page.png" />
+        <meta property="og:url" content="https://formatjson.io/" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:title"
+          content="Best JSON Formatter and JSON Validator: Online JSON Formatter, JSON to XML, JSON beautifier"
+        />
+        <meta
+          property="twitter:description"
+          content="Online JSON Formatter / Beautifier and JSON Validator will format JSON data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON"
+        />
+        <meta property="twitter:image" content="/landing_page.png" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://formatjson.io/" />
+
+        {/* Preconnect for Performance */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XY4H2C61EY"
+        ></script>
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-XY4H2C61EY`}
-        />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -47,12 +93,21 @@ export default function RootLayout({
             gtag('config', 'G-XY4H2C61EY');
           `}
         </Script>
-        <Script
-          defer
-          data-website-id="67077c800a52037e0fc2f48c"
-          data-domain="formatjson.io"
-          src="https://datafa.st/js/script.js"
-        ></Script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Best JSON Formatter and JSON Validator: Online JSON Formatter, JSON to XML, JSON beautifier",
+            url: "https://formatjson.io",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://formatjson.io?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </script>
+
         {children}
       </body>
     </html>
